@@ -1282,3 +1282,61 @@ Here’s a minimal example:
   ```
 
 ---
+
+# Cheat Sheet: Interactive Form Elements
+
+When filling in HTML forms, users may enter incorrect or incomplete data. To handle this, HTML provides **form validation attributes** that help enforce rules automatically.
+
+### ✅ Common Validation Attributes
+
+1. **required**
+
+   * Marks the input as mandatory (cannot be left empty).
+
+   ```html
+   <input type="text" id="firstName" name="firstName" required>
+   ```
+
+2. **maxlength**
+
+   * Sets the maximum number of characters allowed in the input.
+
+   ```html
+   <input type="text" id="description" name="description" maxlength="50">
+   ```
+
+3. **minlength**
+
+   * Sets the minimum number of characters required in the input.
+
+   ```html
+   <input type="password" id="password" name="password" minlength="8">
+   ```
+
+4. **min / max**
+
+   * Defines the allowed minimum and maximum values for inputs like number, range, or date.
+
+   ```html
+   <input type="number" id="quantity" name="quantity" min="1" max="10">
+   <input type="range" id="volume" name="volume" min="1" max="100">
+   ```
+
+5. **multiple**
+
+   * Allows users to enter/select more than one value (only for `email` and `file` input types).
+
+   ```html
+   <input type="file" id="gallery" name="gallery" multiple>
+   ```
+
+6. **pattern**
+
+   * Enforces a specific format using Regular Expressions (works with text, tel, email, password, URL, etc.).
+   * Example: Restrict phone numbers to UK format.
+
+   ```html
+   <input type="tel" id="phone" name="phone" pattern="^(?:0|\+?44)(?:\d\s?){9,10}$">
+   ```
+
+---
