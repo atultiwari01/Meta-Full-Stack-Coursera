@@ -1340,3 +1340,468 @@ When filling in HTML forms, users may enter incorrect or incomplete data. To han
    ```
 
 ---
+
+
+# 📘 Notes: HTML Form Elements
+
+### **1. `<form>`**
+
+* Container for form elements.
+* Attributes:
+
+  * **action** → URL where form data is sent.
+  * **method** → `GET` or `POST`.
+
+---
+
+### **2. `<input>`**
+
+* Creates interactive form controls.
+* Key attribute: **type** → defines behavior & look.
+* Common values:
+
+  * `text` → single-line text field
+  * `password` → hides input (●●●)
+  * `email`, `number`, `url`, `date`
+  * `checkbox`, `radio`, `submit`, `button`
+
+**Example:**
+
+```html
+<input type="text" name="username">
+<input type="password" name="pwd">
+<input type="submit" value="Login">
+```
+
+---
+
+### **3. `<label>`**
+
+* Defines text label for input fields.
+* Attribute: **for** → should match input’s **id**.
+* Improves accessibility & UX.
+
+---
+
+### **4. `<select>`**
+
+* Creates a drop-down list.
+* Attributes:
+
+  * **name** → control name
+  * **form** → associates with a form
+  * **multiple** → allows multi-selection
+  * **required** → must select before submit
+  * **size** → visible items count
+
+Contains `<option>` elements.
+
+---
+
+### **5. `<option>`**
+
+* Defines an item inside `<select>`.
+* Attributes:
+
+  * **value** → value sent on form submission
+  * **selected** → makes option pre-selected
+
+**Example:**
+
+```html
+<select name="course">
+  <option value="html" selected>HTML</option>
+  <option value="css">CSS</option>
+</select>
+```
+
+---
+
+### **6. `<optgroup>`**
+
+* Groups related `<option>`s inside `<select>`.
+* Attribute: **label** → gives group name.
+
+---
+
+### **7. `<textarea>`**
+
+* Multi-line input field for longer text.
+* Attributes:
+
+  * **rows** → visible lines
+  * **cols** → width (characters)
+  * **maxlength** / **minlength**
+  * **readonly** → makes it uneditable
+
+**Example:**
+
+```html
+<textarea name="feedback" rows="5" cols="30" maxlength="200"></textarea>
+```
+
+---
+
+### **8. `<button>`**
+
+* Clickable button.
+* Types:
+
+  * `button` → generic
+  * `submit` → submits form
+  * `reset` → resets form fields
+* **onclick** → defines behavior via JS.
+
+---
+
+### **9. `<fieldset>`**
+
+* Groups related form inputs.
+
+### **10. `<legend>`**
+
+* Provides a caption/title for `<fieldset>`.
+
+**Example:**
+
+```html
+<fieldset>
+  <legend>Personal Info</legend>
+  <input type="text" name="fname">
+</fieldset>
+```
+
+---
+
+### **11. `<datalist>`**
+
+* Provides predefined options **with flexibility** (user can type freely).
+* Used with `<input list="...">`.
+
+**Example:**
+
+```html
+<input list="flowers" name="flower">
+<datalist id="flowers">
+  <option value="Rose">
+  <option value="Lily">
+</datalist>
+```
+
+---
+
+### **12. `<output>`**
+
+* Displays results of a calculation or user action.
+* Typically updated with JavaScript.
+
+---
+
+✅ **Quick Difference:**
+
+* **`<select>`** → user must pick from given options.
+* **`<datalist>`** → user can pick OR type freely.
+
+---
+
+# 📘 Notes: Multimedia Tags in HTML
+
+## 🎥 **`<video>` Tag**
+
+* Used to embed video content in a web page.
+* Needs the `controls` attribute to allow play/pause.
+
+### **Common Attributes**
+
+* `src` → Path/URL of the video file.
+* `controls` → Adds playback controls (play, pause, volume, etc.).
+* `autoplay` → Video starts playing automatically when page loads.
+* `loop` → Video restarts automatically after finishing.
+* `muted` → Starts video in muted mode.
+* `poster` → Image shown before the video plays.
+* `width`, `height` → Dimensions of the video.
+* `<source>` → Defines multiple file sources (browser chooses supported one).
+* `preload` → Hints how video should be loaded:
+
+  * `auto` → Load video fully.
+  * `metadata` → Only load metadata.
+  * `none` → Do not preload.
+
+### **Example**
+
+```html
+<video width="400" controls poster="thumbnail.jpg">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+```
+
+---
+
+## 🎵 **`<audio>` Tag**
+
+* Used to embed audio (music, sound, voice) in a web page.
+
+### **Common Attributes**
+
+* `src` → Path/URL of audio file.
+* `controls` → Adds playback controls.
+* `autoplay` → Plays audio automatically.
+* `loop` → Repeats audio continuously.
+* `muted` → Starts audio muted.
+* `<source>` → Provides multiple audio sources.
+* `preload` → `auto`, `metadata`, or `none` (same as video).
+
+### **Example**
+
+```html
+<audio controls>
+  <source src="song.mp3" type="audio/mpeg">
+  <source src="song.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+```
+
+---
+
+## 🖼️ **`<img>` Tag**
+
+* Embeds an image in a web page.
+* It is a **self-closing tag** (no end tag).
+
+### **Common Attributes**
+
+* `src` → Path/URL of image (required).
+* `alt` → Alternative text (shown if image fails to load, improves accessibility & SEO).
+* `width`, `height` → Dimensions of image (in px or %).
+* `loading` → `lazy` (load when visible), `eager` (load immediately).
+* `crossorigin` → For handling cross-origin requests (`anonymous`, `use-credentials`).
+* `referrerpolicy` → Controls referrer info sent when fetching image.
+* `usemap` → Defines image as part of an image-map.
+
+### **Example**
+
+```html
+<img src="nature.jpg" alt="Beautiful Nature" width="400" height="300" loading="lazy">
+```
+
+---
+
+✅ **Key Differences**
+
+* `<img>` → static images.
+* `<audio>` → sound/music playback.
+* `<video>` → video playback.
+* Both `<audio>` and `<video>` support `<source>` for multiple formats.
+
+---
+
+
+# 📘 Notes: `allow` Attribute in `<iframe>`
+
+The **`allow`** attribute defines **permissions / features** that the embedded iframe content can access.
+
+It works like a **permission policy** for the iframe.
+Multiple permissions are separated by a **semicolon (`;`)**.
+
+---
+
+## 🔑 **Common Values for `allow`**
+
+| Value                | Purpose                                 |
+| -------------------- | --------------------------------------- |
+| `fullscreen`         | Allows iframe content to go fullscreen. |
+| `geolocation`        | Allows access to user’s location.       |
+| `camera`             | Allows access to user’s camera.         |
+| `microphone`         | Allows access to user’s microphone.     |
+| `autoplay`           | Allows media (video/audio) to autoplay. |
+| `payment`            | Allows Payment Request API.             |
+| `clipboard-write`    | Allows copying to clipboard.            |
+| `accelerometer`      | Allows motion sensor data.              |
+| `gyroscope`          | Allows gyroscope sensor data.           |
+| `magnetometer`       | Allows magnetometer sensor data.        |
+| `encrypted-media`    | Allows playback of DRM-protected media. |
+| `picture-in-picture` | Allows video Picture-in-Picture mode.   |
+
+---
+
+## ✅ **Examples**
+
+### 1. Allow fullscreen only
+
+```html
+<iframe src="video.html" allow="fullscreen"></iframe>
+```
+
+---
+
+### 2. Allow multiple features (camera + microphone)
+
+```html
+<iframe src="meet.html" allow="camera; microphone"></iframe>
+```
+
+---
+
+### 3. Allow autoplay + Picture-in-Picture
+
+```html
+<iframe src="player.html" allow="autoplay; picture-in-picture"></iframe>
+```
+
+---
+
+## 📝 Key Notes
+
+* **Default:** If `allow` is missing → iframe gets minimal permissions.
+* **Combination:** Can be used with `sandbox` → sandbox restricts first, then `allow` can selectively enable features.
+* **Best Practice:** Only grant the minimum permissions needed (for **security**).
+
+---
+
+
+# 📘 Notes: `<iframe>` and Sandbox in HTML
+
+The `<iframe>` tag is used to **embed another HTML page** inside a web page.
+
+---
+
+## 🔑 **Common Attributes of `<iframe>`**
+
+### 1. **`src`**
+
+* URL of the page to embed.
+* Example:
+
+  ```html
+  <iframe src="https://example.com"></iframe>
+  ```
+* Special value: `about:blank` → empty page.
+
+---
+
+### 2. **`srcdoc`**
+
+* Embeds **inline HTML** directly instead of loading from `src`.
+* **Overrides** `src` if both are present.
+* Example:
+
+  ```html
+  <iframe src="page.html" srcdoc="<p>Inline HTML</p>"></iframe>
+  ```
+
+---
+
+### 3. **`name`**
+
+* Gives the iframe a name, useful for targeting links or forms.
+* Example:
+
+  ```html
+  <iframe name="MyFrame" width="400" height="300"></iframe>
+  ```
+
+---
+
+### 4. **`width` / `height`**
+
+* Frame dimensions in **CSS pixels**.
+* Default: `width=300`, `height=150`.
+* Example:
+
+  ```html
+  <iframe src="demo.html" width="500" height="300"></iframe>
+  ```
+
+---
+
+### 5. **`allow`**
+
+* Specifies what features iframe can use.
+* Examples:
+
+  ```html
+  <iframe src="demo.html" allow="fullscreen"></iframe>
+  <iframe src="demo.html" allow="camera; microphone"></iframe>
+  ```
+
+---
+
+### 6. **`referrerpolicy`**
+
+* Controls what referrer info is sent.
+* Values:
+
+  * `no-referrer` → send nothing
+  * `origin` → only origin (e.g., `https://site.com`)
+  * `strict-origin` → only origin if same security level (HTTPS→HTTPS)
+
+---
+
+### 7. **`sandbox`**
+
+* Adds **security restrictions** to iframe content.
+* If **empty** → all restrictions are applied.
+* To allow specific features → add **permission tokens** (space-separated).
+
+#### 🔒 **Common Sandbox Tokens**
+
+* `allow-downloads` → enable file downloads
+* `allow-forms` → allow form submission
+* `allow-modals` → allow modal dialogs
+* `allow-orientation-lock` → lock screen orientation
+* `allow-popups` → allow popups
+* `allow-presentation` → allow presentation sessions
+* `allow-scripts` → allow JavaScript (but no popups)
+
+**Example:**
+
+```html
+<iframe src="page.html" sandbox="allow-forms allow-scripts"></iframe>
+```
+
+---
+
+### 8. **`loading`**
+
+* Controls **when** iframe is loaded.
+* Values:
+
+  * `eager` → load immediately (default).
+  * `lazy` → load only when in viewport.
+
+**Example:**
+
+```html
+<iframe src="demo.html" loading="lazy"></iframe>
+```
+
+---
+
+### 9. **`title`**
+
+* Adds description for **accessibility (screen readers)**.
+* Example:
+
+```html
+<iframe src="history.html" title="Family history document"></iframe>
+```
+
+---
+
+## ✅ Summary Table
+
+| Attribute        | Purpose                                          |
+| ---------------- | ------------------------------------------------ |
+| `src`            | URL of embedded page                             |
+| `srcdoc`         | Inline HTML (overrides src)                      |
+| `name`           | Target name for links/forms                      |
+| `width`/`height` | Size of iframe                                   |
+| `allow`          | Permissions (camera, mic, fullscreen, etc.)      |
+| `referrerpolicy` | Controls referrer info sent                      |
+| `sandbox`        | Security restrictions (tokens to allow features) |
+| `loading`        | Load mode (`eager` / `lazy`)                     |
+| `title`          | Accessibility description                        |
+
+---
